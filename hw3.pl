@@ -247,7 +247,7 @@ NOTE: Don't worry about the error cases: i.e, N greater than the length of Y.  *
 
 
 insert_at(E, L, 0, [E|L]).
-insert_at(E, [H,_|L], N, L1):- N>=0, N1 is N-1, insert_at(E, L, N1, L1).
+insert_at(E, [H|L], N, [H|L2]):- N>0, N1 is N-1, insert_at(E, L, N1, L2).
 
 /* Problem 5 Test: */
 %:-insert_at(3,[1,2,3],2,[1,2,3,3]).  % SUCCEED
@@ -267,16 +267,16 @@ NOTE: You may assume X and Y have the same length. */
 
 /* Problem 6 Answer: */
 
-zip([E1|_], [E2|_], [(E1,E2)|_]).
-zip([H|T], [H1|T1], [(H,H1)|T2]):-zip(T, T1, T2).
+zip([E1], [E2], [(E1,E2)|_]).
+zip([H|T], [H1|T1], [(H,H1)|L]):-zip(T, T1, L).
 
 /* Problem 6 Test: */
-zip([1,2,3],[a,b,c],[(1,a),(2,b),(3,c)]). % SUCCEED
-zip([],[],[]).                      % SUCCEED
-zip([1],[2],[(1,2)]).               % SUCCEED
+%:-zip([1,2,3],[a,b,c],[(1,a),(2,b),(3,c)]). % SUCCEED
+%:-zip([],[],[]).                      % SUCCEED
+%:-zip([1],[2],[(1,2)]).               % SUCCEED
 
-zip([1],[2],[(2,3)]).               % FAIL
-zip([1],[2,3],[(1,2)]).             % FAIL
+%:-zip([1],[2],[(2,3)]).               % FAIL
+%:-zip([1],[2,3],[(1,2)]).             % FAIL
 
 /* Problem 7:
 
