@@ -288,6 +288,9 @@ zip2([1],[a,b],Zs) should give Zs = [(1,a)] */
 
 /* Problem 7 Answer: */
 
+zip2([E1], [E2],[(E1,E2)|_]).
+
+
 /* Problem 7 Test: */
 %:-zip2([1,2,3],[a,b,c],[(1,a),(2,b),(3,c)]). % SUCCEED
 %:-zip2([],[a,b,c],[]).                  % SUCCEED
@@ -327,6 +330,9 @@ merge([H|T], [H1|T1],[H1,H|L] ):- merge(T, T1, L).
 */
 
 /* Problem 9 Answer: */
+
+
+
 
 /* Problem 9 Test: */
 %:-greater_than(succ(succ(succ(0))),succ(0)).        % SUCCEED
